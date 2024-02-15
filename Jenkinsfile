@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    tool (node.js "node")
+    
     stages {
         stage('Checkout') {
             steps {
@@ -15,6 +15,7 @@ pipeline {
                     // Navigate to the React_frontend directory
                     dir('Frontend_React') {
                         // Install project dependencies
+                        tool 'Node.js'
                         sh 'npm install'
 
                         // Run React test cases
