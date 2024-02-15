@@ -15,6 +15,7 @@ pipeline {
                 sh 'echo "export PATH=/usr/local/node/bin:$PATH" >> ~/.bashrc'
                 sh 'source ~/.bashrc'
             }
+         }
         stage('Install Dependencies and Run Tests') {
             steps {
                 script {
