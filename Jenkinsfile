@@ -2,7 +2,7 @@ pipeline {
     agent any
      tools {
         // Define the Node.js tool installation
-        nodejs "NodeJs"
+        nodejs "NodeJS"
     }
     stages {
         stage('Checkout') {
