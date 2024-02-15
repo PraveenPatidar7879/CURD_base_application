@@ -37,7 +37,7 @@ pipeline {
             // Archive the HTML test report
             echo "artifacts"
             archiveArtifacts artifacts: 'Frontend_React/coverage/lcov-report/index.html' , followSymlinks: false
-            archiveArtifacts artifacts: 'coverage/lcov-report/index.html'
+            archiveArtifacts artifacts: 'Frontend_React/coverage/lcov-report/index.html'
         }
 
         success {
