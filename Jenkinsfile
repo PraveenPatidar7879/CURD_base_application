@@ -15,7 +15,7 @@ pipeline {
                     // Navigate to the React_frontend directory
                     dir('Frontend_React') {
                         // Install project dependencies
-                        tool 'Node.js'
+                        tool 'NodeJS'
                         sh 'npm install'
 
                         // Run React test cases
