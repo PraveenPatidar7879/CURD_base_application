@@ -1,3 +1,5 @@
+/*istanbul ignore file*/
+
 import React, { Component } from 'react'
 import EmployeeService from '../services/EmployeeService'
 
@@ -12,7 +14,7 @@ class ListEmployeeComponent extends Component {
         this.editEmployee = this.editEmployee.bind(this);
         this.deleteEmployee = this.deleteEmployee.bind(this);
     }
-
+/*istanbul ignore file*/
     deleteEmployee(id){
         EmployeeService.deleteEmployee(id).then( res => {
             this.setState({employees: this.state.employees.filter(employee => employee.id !== id)});

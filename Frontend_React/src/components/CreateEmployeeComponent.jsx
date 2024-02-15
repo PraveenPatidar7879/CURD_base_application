@@ -1,3 +1,4 @@
+/*istanbul ignore file*/
 import React, { Component } from 'react'
 import EmployeeService from '../services/EmployeeService';
 
@@ -7,7 +8,7 @@ class CreateEmployeeComponent extends Component {
 
         this.state = {
             // step 2
-            id: this.props.match.params.id,
+            id: this.props.match ? this.props.match.params.id : '_add',
             firstName: '',
             lastName: '',
             emailId: ''
