@@ -1,10 +1,15 @@
 pipeline {
     agent any
 
+    tools {
+        // Define the Node.js tool installation
+        nodejs "NodeJS"
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                // Checkout your code from version control system (e.g., Git)
+                // Checkout your code from the version control system (e.g., Git)
                 checkout scm
             }
         }
@@ -14,11 +19,9 @@ pipeline {
                 script {
                     // Navigate to the React_frontend directory
                     dir('Frontend_React') {
-                        // Install Node.js and npm
-                        def nodejsHome = tool 'NodeJS'
-                        env.PATH = "${nodejsHome}/bin:${env.PATH}"
-
                         // Install project dependencies
+                        sh "node --version"
+                        sh "npm --version"
                         sh 'npm install'
 
                         // Run React test cases
@@ -28,6 +31,22 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            // Archive the HTML test report
+            echo "artifacts"
+            archiveArtifacts artifacts: 'Frontend_React/coverage/lcov-report/index.html' , followSymlinks: false
+            archiveArtifacts artifacts: 'Frontend_React/coverage/lcov-report/index.html'
+        }
+
+        success {
+            // Additional actions for a successful build
+            echo 'Build and test execution successful!'
+        }
+        failure {
+            // Additional actions for a failed build
+            echo 'Build or test execution failed!'
+        }
+    }
 }
-
-
