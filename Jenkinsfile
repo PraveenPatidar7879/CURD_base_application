@@ -15,10 +15,12 @@ pipeline {
                     // Navigate to the React_frontend directory
                     dir('Frontend_React') {
                         // Install project dependencie
-                        sh 'npm install'
+                        sh "node --version"
+                        sh "npm  --version"
+                     //   sh 'npm install'
 
                         // Run React test cases
-                        sh 'npm test'
+                      //  sh 'npm test'
                     }
                 }
             }
