@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    tool (node.js "node")
     stages {
         stage('Checkout') {
             steps {
@@ -14,10 +14,6 @@ pipeline {
                 script {
                     // Navigate to the React_frontend directory
                     dir('Frontend_React') {
-                        // Install Node.js and npm
-                        def nodejsHome = tool 'NodeJS'
-                        env.PATH = "${nodejsHome}/bin:${env.PATH}"
-
                         // Install project dependencies
                         sh 'npm install'
 
