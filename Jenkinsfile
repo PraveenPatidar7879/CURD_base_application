@@ -35,17 +35,9 @@ pipeline {
     post {
         always {
             // Archive the HTML test report
-            archiveArtifacts 'Frontend_React/coverage/lcov-report/**/*.html'
-
-            // Publish HTML test report
-            publishHTML([
-                allowMissing: false,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'Frontend_React/coverage/lcov-report',
-                reportFiles: 'index.html',
-                reportName: 'React Test Report'
-            ])
+            echo "artifacts"
+            archiveArtifacts artifacts: 'reports/index.html , followSymlinks: false
+            archiveArtifacts artifacts: '/coverage/lcov-report/index.html'
         }
 
         success {
