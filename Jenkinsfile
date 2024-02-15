@@ -20,10 +20,10 @@ pipeline {
                         // Install project dependencie
                         sh "node --version"
                         sh "npm  --version"
-                     //   sh 'npm install'
+                        sh 'npm install'
 
-                        // Run React test cases
-                      //  sh 'npm test'
+                        //Run React test cases
+                        sh 'npm test'
                     }
                 }
             }
