@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    
+     tools {
+        // Define the Node.js tool installation
+        nodejs "NodeJs"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -8,14 +11,7 @@ pipeline {
                 checkout scm
             }
         }
-         stage('Install Node.js') {
-            steps {
-                sh 'curl -o- https://nodejs.org/dist/v14.17.5/node-v14.17.5-linux-x64.tar.gz | tar -xz'
-                sh 'mv node-v14.17.5-linux-x64 /usr/local/node'
-                sh 'echo "export PATH=/usr/local/node/bin:$PATH" >> ~/.bashrc'
-                sh 'source ~/.bashrc'
-            }
-         }
+        
         stage('Install Dependencies and Run Tests') {
             steps {
                 script {
