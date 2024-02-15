@@ -36,7 +36,7 @@ pipeline {
         always {
             // Archive the HTML test report
             echo "artifacts"
-            archiveArtifacts artifacts: 'reports/index.html' , followSymlinks: false
+            archiveArtifacts artifacts: 'coverage/lcov-report/index.html' , followSymlinks: false
             archiveArtifacts artifacts: 'coverage/lcov-report/index.html'
         }
 
