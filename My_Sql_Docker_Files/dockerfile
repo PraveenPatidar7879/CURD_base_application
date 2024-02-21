@@ -3,7 +3,7 @@ FROM mysql:latest
 
 # Set environment variables for MySQL
 # Set environment variables for MySQL
-ENV MYSQL_ROOT_PASSWORD=Iit.j@m22235
+ENV MYSQL_ROOT_PASSWORD=Iit.j@m2235
 ENV MYSQL_DATABASE=employ_management_system
 
 # Expose port 3306 for MySQL

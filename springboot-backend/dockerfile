@@ -1,0 +1,17 @@
+# Use an official OpenJDK runtime as a base image
+FROM openjdk:17-jdk-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the contents of the local "demo" directory into the container at /app
+COPY . /app
+
+#giving executable permission to mvnm
+RUN chmod +x mvnw
+
+# Expose the port the application runs on
+EXPOSE 8989
+
+# Specify the command to run on container startup
+CMD ["./mvnw", "spring-boot:run"]
