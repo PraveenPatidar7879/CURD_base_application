@@ -7,7 +7,7 @@ ENV MYSQL_ROOT_PASSWORD=Iit.j@m2235
 ENV MYSQL_DATABASE=employ_management_system
 
 # Expose port 3306 for MySQL
-EXPOSE 3306
+EXPOSE 3307
 
 # Start MySQL server
 CMD ["mysqld"]
