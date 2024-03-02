@@ -5,9 +5,11 @@ For database MYsql is used
 
 To run the applcation
   Install docker and Docker compose in your system:
-    and run command : docker-compose up --build
+    and run command : 
+          
+	  docker-compose up --build
     
-	 YOur application will be running on localhost:3000
+ YOur application will be running on localhost:3000
 
 
 
