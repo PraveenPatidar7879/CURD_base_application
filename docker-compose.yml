@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  service1:
+    build:
+      context: ./My_Sql_Docker_Files
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3306"
+    networks:
+      my-network:
+        ipv4_address: 172.18.0.2
+
+  service2:
+    build:
+      context: ./springboot-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8989:8989"
+    depends_on:
+      - service1
+    networks:
+      my-network:
+        ipv4_address: 172.18.0.4
+
+  service3:
+    build:
+      context: ./Frontend_React
+      dockerfile: Dockerfile
+    stdin_open: true
+    depends_on:
+      - service2
+    networks:
+      my-network:
+        ipv4_address: 172.18.0.6
+    ports:
+      - "3000:3000"
+
+networks:
+  my-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/24
