@@ -13,13 +13,12 @@ To run the applcation
 
  To stop all the running containers 
 
-      docker stop $(docker ps -q)
+      docker-compose down
 
-To remove all local docker images
+To stop all running container and remove all the images 
 
-     docker rmi -f curd_base_application_service1
-     docker rmi -f curd_base_application_service2
-     docker rmi -f curd_base_application_service3
+     docker-compose down --rmi all
+
      
 
 
