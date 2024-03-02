@@ -11,6 +11,16 @@ To run the applcation
     
  YOur application will be running on localhost:3000
 
+ To stop all the running containers 
+
+      docker stop $(docker ps -q)
+
+To remove all local docker images
+
+     docker rmi -f curd_base_application_service1
+     docker rmi -f curd_base_application_service2
+     docker rmi -f curd_base_application_service3
+     
 
 
 
