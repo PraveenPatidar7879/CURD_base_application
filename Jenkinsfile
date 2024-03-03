@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        // Define the Node.js tool installation
-        nodejs "NodeJS"
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -18,14 +13,10 @@ pipeline {
             steps {
                 script {
                     // Navigate to the React_frontend directory
-                    dir('Frontend_React') {
-                        // Install project dependencies
-                        sh "node --version"
-                        sh "npm --version"
-                        sh 'npm install'
+                    dir('springboot-backend') {
 
-                        // Run React test cases
-                        sh 'npm test'
+                        // Run Backend_server
+                        sh 'mvn spring-boot:run'
                     }
                 }
             }
@@ -33,12 +24,6 @@ pipeline {
     }
 
     post {
-        always {
-            // Archive the HTML test report
-            echo "artifacts"
-            archiveArtifacts artifacts: 'Frontend_React/coverage/lcov-report/index.html' , followSymlinks: false
-            archiveArtifacts artifacts: 'Frontend_React/coverage/lcov-report/index.html'
-        }
 
         success {
             // Additional actions for a successful build
