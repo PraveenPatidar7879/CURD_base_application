@@ -16,7 +16,7 @@ pipeline {
                     dir('springboot-backend') {
 
                         // Run Backend_server
-                        sh 'mvn spring-boot:run'
+                        sh 'mvn test'
                     }
                 }
             }
