@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    tools{
+        maven 'Mvnm-3.6.3'
+    }
     
     stages {
         stage('Checkout') {
