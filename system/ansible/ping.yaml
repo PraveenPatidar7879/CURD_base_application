@@ -1,0 +1,8 @@
+---
+- name: Ping example
+  hosts: target_machine
+  gather_facts: no
+
+  tasks:
+    - name: Ping the target machine
+      ping:

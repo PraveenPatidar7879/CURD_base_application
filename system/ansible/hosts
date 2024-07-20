@@ -1,0 +1,2 @@
+[target_machine]
+172.0.0.1 ansible_password=xyz ansible_ssh_common_args='-o StrictHostKeyChecking=no'
